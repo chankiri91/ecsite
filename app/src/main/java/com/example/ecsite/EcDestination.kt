@@ -10,25 +10,25 @@ import com.example.ecsite.ui.FavoritePage
 import com.example.ecsite.ui.MyPage
 import com.example.ecsite.ui.ShopPage
 
-interface Destination {
+interface EcDestination {
     val icon: ImageVector
     val route: String
     val screen: @Composable () -> Unit
 }
 
-object Shop: Destination {
+object Shop: EcDestination {
     override val icon = Icons.Filled.ShoppingCart
     override val route = "shop"
     override val screen: @Composable () -> Unit = { ShopPage()}
 }
 
-object Favorite: Destination {
+object Favorite: EcDestination {
     override val icon = Icons.Filled.Favorite
     override val route = "favorite"
     override val screen: @Composable () -> Unit = { FavoritePage() }
 }
 
-object MyPage: Destination {
+object MyPage: EcDestination {
     override val icon = Icons.Filled.AccountCircle
     override val route = "mypage"
     override val screen: @Composable () -> Unit = { MyPage() }
