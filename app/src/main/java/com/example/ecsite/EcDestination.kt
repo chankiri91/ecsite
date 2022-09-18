@@ -9,7 +9,6 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import com.example.ecsite.ui.FavoritePage
 import com.example.ecsite.ui.MyPage
 import com.example.ecsite.ui.ShopPage
-import java.security.spec.ECParameterSpec
 
 interface EcDestination {
     val icon: ImageVector
