@@ -13,10 +13,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
 import com.example.ecsite.R
 import com.example.ecsite.ui.shop_page.NewReleaseElement
+import com.example.ecsite.ui.shop_page.NewReleaseRow
 
 @Composable
 fun ShopPage(modifier: Modifier = Modifier) {
-    NewReleaseElement()
+    NewReleaseRow()
 }
 
 @Preview

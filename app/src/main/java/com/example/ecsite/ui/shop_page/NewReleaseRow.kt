@@ -2,6 +2,7 @@ package com.example.ecsite.ui.shop_page
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -43,8 +44,25 @@ fun NewReleaseElement(modifier: Modifier = Modifier) {
     }
 }
 
+@Composable
+fun NewReleaseRow(
+    modifier: Modifier = Modifier
+) {
+    LazyRow(modifier = modifier) {
+        items(10) {
+            NewReleaseElement()
+        }
+    }
+}
+
 @Preview(showBackground = true, backgroundColor = 0xFFF0EAE2)
 @Composable
 fun PreviewNewReleaseElement() {
     NewReleaseElement()
+}
+
+@Preview(showBackground = true, backgroundColor = 0xFFF0EAE2)
+@Composable
+fun PreviewNewReleaseRow() {
+    NewReleaseRow()
 }
