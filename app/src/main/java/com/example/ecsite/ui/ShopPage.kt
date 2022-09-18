@@ -8,7 +8,6 @@ import androidx.navigation.compose.rememberNavController
 
 @Composable
 fun ShopPage(modifier: Modifier = Modifier) {
-    val navController = rememberNavController()
     Text(text = "Shop Page")
 }
 

@@ -37,9 +37,19 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun EcSite() {
-    var currentScreen: EcDestination by remember { mutableStateOf(Shop) }
+//    var currentScreen: EcDestination by remember { mutableStateOf(Shop) }
     val navController = rememberNavController()
-    Scaffold() {
+    Scaffold(
+        bottomBar = {
+            EcBottomNavigation(
+                items = destinationList,
+                navController = navController,
+                onItemClick = {
+                    navController.navigate(it.route)
+                }
+            )
+        }
+    ) {
         NavHost(
             navController = navController,
             startDestination = Shop.route,

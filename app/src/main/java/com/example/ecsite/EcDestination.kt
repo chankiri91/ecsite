@@ -9,6 +9,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import com.example.ecsite.ui.FavoritePage
 import com.example.ecsite.ui.MyPage
 import com.example.ecsite.ui.ShopPage
+import java.security.spec.ECParameterSpec
 
 interface EcDestination {
     val icon: ImageVector
@@ -33,3 +34,5 @@ object MyPage: EcDestination {
     override val route = "mypage"
     override val screen: @Composable () -> Unit = { MyPage() }
 }
+
+val destinationList: List<EcDestination> = listOf(Shop, Favorite, MyPage)
