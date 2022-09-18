@@ -5,11 +5,17 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Scaffold
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.ecsite.ui.theme.EcSiteTheme
 
 class MainActivity : ComponentActivity() {
@@ -22,7 +28,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Android")
+                    EcSite()
                 }
             }
         }
@@ -30,14 +36,33 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    EcSiteTheme {
-        Greeting("Android")
+fun EcSite() {
+//    var currentScreen: EcDestination by remember { mutableStateOf(Shop) }
+    val navController = rememberNavController()
+    Scaffold(
+        bottomBar = {
+            EcBottomNavigation(
+                items = destinationList,
+                navController = navController,
+                onItemClick = {
+                    navController.navigate(it.route)
+                }
+            )
+        }
+    ) {
+        NavHost(
+            navController = navController,
+            startDestination = Shop.route,
+        ) {
+            composable(route = Shop.route) {
+                Shop.screen()
+            }
+            composable(route = Favorite.route) {
+                Favorite.screen()
+            }
+            composable(route = MyPage.route) {
+                MyPage.screen()
+            }
+        }
     }
 }
