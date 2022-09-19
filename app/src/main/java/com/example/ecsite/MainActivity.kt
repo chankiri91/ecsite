@@ -4,14 +4,17 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.paddingFromBaseline
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.ecsite.ui.EcTopBar
 import com.example.ecsite.ui.theme.EcSiteTheme
 
 class MainActivity : ComponentActivity() {
@@ -36,6 +39,7 @@ fun EcSite() {
 //    var currentScreen: EcDestination by remember { mutableStateOf(Shop) }
     val navController = rememberNavController()
     Scaffold(
+        topBar = { EcTopBar() },
         bottomBar = {
             EcBottomNavigation(
                 items = destinationList,

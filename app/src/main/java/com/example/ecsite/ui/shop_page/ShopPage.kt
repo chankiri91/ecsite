@@ -20,7 +20,7 @@ fun ShopPage(modifier: Modifier = Modifier) {
     NewReleaseRow()
 }
 
-@Preview
+@Preview(showBackground = true, backgroundColor = 0xFFF0EAE2)
 @Composable
 fun PreviewShopPage(modifier: Modifier = Modifier) {
     ShopPage()
